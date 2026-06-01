@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>食物製備原理與應用 - 數位教材</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-green: #27ae60;
-            --primary-gold: #f39c12;
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #f39c12;
             --bg-color: #f8f9fa;
-            --text-color: #2c3e50;
-            --white: #ffffff;
+            --text-color: #333;
         }
 
-        * { box-sizing: border-box; }
-
         body {
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
             color: var(--text-color);
             background-color: var(--bg-color);
@@ -27,248 +22,365 @@
             padding: 0;
         }
 
-        /* 導覽列排版 */
+        /* 導覽列 */
         nav {
-            background-color: #2c3e50;
-            padding: 10px 0;
+            background-color: var(--primary-color);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .nav-btn {
-            padding: 10px 25px;
-            background: none;
+        .tab-btn {
+            background: transparent;
             border: 2px solid transparent;
             color: white;
             font-size: 1.1em;
+            padding: 10px 25px;
+            margin: 0 5px;
             cursor: pointer;
-            border-radius: 25px;
-            transition: 0.3s;
+            border-radius: 30px;
+            transition: all 0.3s;
         }
 
-        .nav-btn.active {
-            border-color: var(--primary-gold);
-            color: var(--primary-gold);
+        .tab-btn:hover {
+            background-color: rgba(255,255,255,0.1);
         }
 
-        .nav-btn:hover { background-color: rgba(255,255,255,0.1); }
+        .tab-btn.active {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            font-weight: bold;
+        }
 
-        /* 內容容器 */
+        /* 內容區塊 */
         .container {
             max-width: 1000px;
-            margin: 30px auto;
+            margin: 40px auto;
             padding: 40px;
-            background-color: var(--white);
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-radius: 12px;
         }
 
-        .content-section { display: none; }
-        .content-section.active { display: block; }
-
-        header { text-align: center; margin-bottom: 50px; }
-        h1 { font-size: 2.5em; margin-bottom: 10px; }
-        h2 { color: var(--primary-green); border-left: 5px solid var(--primary-green); padding-left: 15px; margin-top: 40px; }
-        h3 { color: #2980b9; margin-top: 30px; }
-
-        /* 油脂類主題配色 */
-        #chapter8 h2 { color: #d35400; border-color: #d35400; }
-        #chapter8 .highlight-box { background: #fff5e6; border-left-color: #f39c12; }
-
-        .highlight-box {
-            background: #e8f8f5;
-            padding: 25px;
-            border-left: 5px solid var(--primary-green);
-            border-radius: 8px;
-            margin: 25px 0;
+        .chapter-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
-        .key-points {
-            background-color: #f1f2f6;
-            padding: 20px;
+        .chapter-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #f0fdf4;
+            padding: 10px 10px 10px 15px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* 重點提示框 */
+        .highlight-box {
+            background: #fff8e1;
+            border-left: 5px solid var(--accent-color);
+            padding: 25px;
             border-radius: 8px;
-            border: 1px dashed #7f8c8d;
+            margin: 30px 0;
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: #d35400;
         }
 
         /* 表格樣式 */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 25px 0;
         }
 
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #f4f6f7; }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
 
-        /* 測驗樣式 */
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* 測驗區塊 */
         .quiz-section {
-            background-color: #fdf2f2;
-            padding: 25px;
-            border-radius: 12px;
             margin-top: 50px;
+            background: #f0f4f8;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #dce4ec;
+        }
+
+        .quiz-section h3 {
+            margin-top: 0;
+            color: var(--primary-color);
         }
 
         details {
             background: white;
             padding: 15px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border-radius: 8px;
-            border: 1px solid #fab1a0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            cursor: pointer;
         }
 
-        summary { font-weight: bold; cursor: pointer; color: #e17055; }
-        .answer { padding-top: 10px; color: #2d3436; border-top: 1px solid #eee; margin-top: 10px; }
+        summary {
+            font-weight: bold;
+            color: #34495e;
+            outline: none;
+        }
 
-        footer { text-align: center; padding: 40px; color: #95a5a6; font-size: 0.9em; }
+        .answer {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+            color: #c0392b;
+            font-weight: 500;
+        }
 
-        @media (max-width: 600px) {
-            .container { padding: 20px; }
-            .nav-container { flex-direction: column; align-items: center; }
+        @media (max-width: 768px) {
+            .container { padding: 20px; margin: 20px; }
+            .tab-btn { padding: 8px 15px; font-size: 1em; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-container">
-            <button class="nav-btn active" onclick="showChapter('chapter8', this)">第八章 油脂類</button>
-            <button class="nav-btn" onclick="showChapter('chapter9', this)">第九章 蔬菜類</button>
-        </div>
+        <button class="tab-btn active" onclick="switchTab('chapter8')">第八章 油脂類</button>
+        <button class="tab-btn" onclick="switchTab('chapter9')">第九章 蔬菜類</button>
     </nav>
 
     <div class="container">
         
-        <div id="chapter8" class="content-section active">
+        <div id="chapter8" class="chapter-content active">
             <header>
                 <h1>第八章 油脂類</h1>
-                <p>夏先瑜 編著</p>
+                <p>食物製備原理與應用</p>
             </header>
 
             <div class="highlight-box">
-                <h3>📌 本章重點提示</h3>
-                <ul class="key-points">
-                    <li><strong>組成：</strong>油脂 1 公克可產生 9 大卡熱量，由甘油與脂肪酸組成。</li>
-                    <li><strong>特性：</strong>發煙點是品質關鍵。油炸用油發煙點應在 200°C 以上。</li>
-                    <li><strong>反式脂肪：</strong>氫化作用產生，攝取過多會增加低密度脂蛋白 (LDL)，危害心血管健康。</li>
-                    <li><strong>變質：</strong>光線、熱、氧氣與金屬離子（鐵、銅）會加速油脂酸敗。</li>
+                <h3>📌 本章學習目標與重點提示</h3>
+                <ul>
+                    <li>認識油脂類的組成、結構及物理與化學性質。</li>
+                    <li>了解食用油脂的選購與儲存原則，及預防酸敗的注意事項。</li>
+                    <li>認識油脂類的烹調特性及應用於食物製備的原理（如乳化、軟化、熱傳遞）。</li>
+                    <li><strong>核心觀念：</strong>發煙點控制、反式脂肪的危害、油脂變質因素。</li>
                 </ul>
             </div>
 
             <h2>第一節 油脂類的成分與特性</h2>
-            <p>脂肪是室溫時呈固態的「脂」(fat) 及液態的「油」(oil) 的總稱。它是人體必需的營養素，1公克可產生9大卡熱量，遠高於醣類與蛋白質。</p>
-            <h3>中性脂肪的結構</h3>
-            <p>主要由 1 分子甘油及 1~3 分子脂肪酸組成。分為單酸甘油酯、雙酸甘油酯及三酸甘油酯（食用油多屬此類）。</p>
+            <p>脂肪 (lipids) 是室溫時呈固態的脂 (fat) 及液態的油 (oil) 的總稱。人體內的脂肪可由飲食中攝取的脂肪、碳水化合物及蛋白質轉換而來，而體內需要但無法自行合成的必需脂肪酸 (essential fatty acid)，必須完全由飲食中獲得。油脂1公克可產生9大卡熱量，是人體重要的能量來源。</p>
+            
+            <h3>壹、定義與物理性質</h3>
+            <p>油脂類主要由碳、氫、氧等元素組成。其物理性質包括融點、凝固點、溶解性（不溶於水）、色澤、硬度、密度（小於水）及黏度等。其中最重要的指標之一為<strong>發煙點 (Smoke Point)</strong>，即油脂加熱後，成分開始分解冒煙時的溫度。油脂中雜質愈多，或游離脂肪酸愈多，發煙點就愈低。烹調時應依溫度選擇適合的油類，油炸用油發煙點最好在 200℃ 以上。</p>
+            
+            <h3>貳、化學性質與健康</h3>
+            <ul>
+                <li><strong>氫化作用 (Hydrogenation)：</strong>降低不飽和程度，由液態轉為固態。</li>
+                <li><strong>反式脂肪：</strong>氫化反應中產生的異構物，堆積體內會提升低密度脂蛋白 (LDL) 濃度，增加心血管疾病機率。</li>
+                <li><strong>膽固醇：</strong>僅存在於動物性組織。LDL 負責運送（易附著血管壁），HDL 負責帶回肝臟代謝。</li>
+            </ul>
 
             <h2>第二節 食用油脂的選購與儲存</h2>
-            <h3>選購守則</h3>
+            <p>油脂變質（酸敗）受光線、金屬離子、氧氣、溫度及水分影響。儲存與防止變質的原則包括：</p>
             <ul>
-                <li><strong>發煙點：</strong>油脂加熱至分解冒煙的溫度。油炸需選發煙點 >200°C 的油（如精製大豆油、芥花油）。</li>
-                <li><strong>容器：</strong>橄欖油應選有色玻璃瓶裝，防止光線導致變質。</li>
+                <li>防止光線直射：儲存於深色瓶（如初榨橄欖油）或櫥櫃中。</li>
+                <li>降低溫度：奶油等動物性油脂需儲存於冰箱。</li>
+                <li>避免水分介入與過大油鍋。</li>
+                <li>避免使用鐵、銅等金屬容器，以免加速氧化。</li>
             </ul>
-            <h3>防止變質 (酸敗)</h3>
-            <p>避免水分介入、蓋牢瓶蓋、降低儲存溫度、避免使用金屬容器（改用玻璃或塑鋼）。</p>
 
-            <h2>第三節 油脂類的食物製備原理</h2>
-            <p>油脂具有乳化作用（如蛋黃中的卵磷脂製作美乃滋）、軟化作用（麵糰中形成薄膜延緩老化）以及熱傳遞作用。</p>
+            <h2>第三節 食物製備原理與應用</h2>
+            <p>油脂在烹調中提供乳化作用（如製作美乃滋）、軟化作用（烘焙中軟化麵筋）、拌入空氣使體積膨大、潤滑、傳熱及產生風味的功能。加熱時，食物水分蒸發，油脂進入組織改變質地，賦予食物酥脆口感。</p>
 
             <div class="quiz-section">
-                <h3>📝 小測驗：自我檢測</h3>
+                <h3>📝 學習成效檢測 (點擊題目查看答案)</h3>
                 <details>
-                    <summary>Q1: 油脂加熱後成分開始分解冒煙的溫度稱為什麼？</summary>
-                    <div class="answer">答案：發煙點 (Smoke Point)。油炸時應選擇發煙點高的油脂以確保安全。</div>
+                    <summary>Q1: 為什麼油炸食物時，必須選擇發煙點高的油脂？</summary>
+                    <div class="answer">答：因為發煙點是油脂開始分解變質並產生濃煙的溫度。若油炸溫度高於發煙點，油脂會裂解產生有害物質，影響健康與食物風味。油炸用油發煙點建議在 200℃ 以上。</div>
                 </details>
                 <details>
-                    <summary>Q2: 為什麼長期食用反式脂肪會危害健康？</summary>
-                    <div class="answer">答案：因為反式脂肪會使體內低密度脂蛋白 (LDL) 濃度上升，大大增加心血管疾病的風險。</div>
+                    <summary>Q2: 日常儲存食用油時，應避免哪些加速油脂「酸敗」的因素？</summary>
+                    <div class="answer">答：應避免光線直射、高溫、氧氣接觸、水分介入，以及接觸鐵、銅等會催化氧化的金屬離子。</div>
                 </details>
                 <details>
-                    <summary>Q3: 測量油脂不飽和程度的指標稱為什麼？</summary>
-                    <div class="answer">答案：碘價 (Iodine Value)。</div>
+                    <summary>Q3: 氫化作用產生的「反式脂肪」對人體有何危害？</summary>
+                    <div class="answer">答：反式脂肪會使體內低密度脂蛋白 (LDL，壞膽固醇) 濃度上升，並降低高密度脂蛋白 (HDL，好膽固醇)，大幅增加罹患心血管疾病的風險。</div>
                 </details>
             </div>
         </div>
 
-        <div id="chapter9" class="content-section">
+        <div id="chapter9" class="chapter-content">
             <header>
                 <h1>第九章 蔬菜類</h1>
-                <p>何學斌 編著</p>
+                <p>食物製備原理與應用(三版) 何學斌 編著</p>
             </header>
 
             <div class="highlight-box">
-                <h3>📌 本章重點提示</h3>
-                <ul class="key-points">
-                    <li><strong>膳食纖維：</strong>分為水溶性（半纖維質、果膠）與非水溶性（纖維質、木質素）。</li>
-                    <li><strong>變色防治：</strong>酵素性褐變可利用「殺菁」(Blanching) 或酸性溶液抑制。</li>
-                    <li><strong>色素特性：</strong>葉綠素遇酸變橄欖色，加熱時不可蓋鍋蓋以利有機酸揮發。</li>
-                    <li><strong>儲藏：</strong>低溫可減緩呼吸速率，但要注意「冷傷」(Chilling Injury)。</li>
+                <h3>📌 本章學習目標與重點提示</h3>
+                <ul>
+                    <li>了解如何挑選各類新鮮蔬菜，並認識有機認證。</li>
+                    <li>認識各類蔬菜的儲藏方式（如冷藏、控氣保藏），並維持良好蔬菜品質。</li>
+                    <li>認識蔬菜的成分（水分、膳食纖維、色素、風味成分）對烹調上的影響。</li>
+                    <li>學習蔬菜的各種烹調方式與變化（生食、醃漬、汆燙、炒、燉、烤、炸）。</li>
+                    <li>認識藻類與菇類在烹調上的運用與營養價值。</li>
                 </ul>
             </div>
 
+            <h2>前言</h2>
+            <p>2002年知名醫學雜誌The Lancet中有一篇研究指出，在歸納26個國家的相關研究後發現，成人每天至少要攝取600克的蔬果，換算為蔬果的份數就相當於5份的蔬果，而我國每日飲食指南中建議量為每日300克蔬菜。根據營養健康變遷調查結果顯示，國人平均攝食蔬菜之份數只有1.95份（＜ 200克），有攝取不足的情況。蔬菜主要供給維生素、礦物質與纖維，對於人體的生理代謝有極大的幫助。如何選購蔬菜與利用多樣化的烹調方式，增加纖維與營養成分的攝取，實為維護個人健康一大重要課題。</p>
+
             <h2>第一節 蔬菜的成分與特性</h2>
-            <h3>重要色素與烹調變化</h3>
-            <table>
-                <tr><th>色素名稱</th><th>存在食材</th><th>烹調特性</th></tr>
-                <tr><td>葉綠素</td><td>綠葉蔬菜</td><td>遇酸變橄欖色；建議大火快炒。</td></tr>
-                <tr><td>類胡蘿蔔素</td><td>胡蘿蔔、番茄</td><td>脂溶性，性質穩定，需加油脂烹煮易吸收。</td></tr>
-                <tr><td>花青素</td><td>茄子、紫甘藍</td><td>水溶性，遇酸變紅，遇鹼變藍紫或黃色。</td></tr>
-            </table>
+            
+            <h3>壹、一般成分</h3>
+            <p><strong>一、水分：</strong>蔬菜中水分所佔的比例依照不同種類有所差異：葉菜類水分含量在84~96%、根菜類66~93%、果菜類85~97%、菇類88~95%，藻類4~20%。葉菜類採收後會因失水而呈現「萎凋」(wilting)狀態，因此如何避免水分散失相當重要。</p>
+            <p><strong>二、碳水化合物：</strong>蔬菜去除水分後碳水化合物約佔75%（乾重）。其中構成細胞壁且人體無法消化的稱為「膳食纖維」(dietary fiber)：</p>
+            <ul>
+                <li><strong>水溶性膳食纖維：</strong>包括半纖維質、果膠、海藻膠等，具吸收水分、刺激腸道蠕動預防便秘、延緩飯後血糖上升、降低血清膽固醇之功效。</li>
+                <li><strong>非水溶性膳食纖維：</strong>包括纖維質、木質素等，具稀釋致癌物質濃度、增加飽足感、預防腸憩炎等功效。</li>
+            </ul>
+            <p>另一類碳水化合物是澱粉，如馬鈴薯、番薯等，在儲藏期間會將糖類轉換為澱粉儲存起來，造成甜味下降。</p>
+            <p><strong>三、維生素與礦物質：</strong>維生素A於胡蘿蔔、菠菜、番茄中豐富；維生素C、B2於綠葉蔬菜中豐富；深綠色蔬菜含豐富葉酸。礦物質方面，葉菜類富含鈣、鐵；海藻富含鐵、鈣、鈉、碘。</p>
+
+            <h3>貳、其他成分</h3>
+            <p>有些蔬菜（菠菜、芹菜、茄子）含較高量草酸，若大量食用未攝取足夠鈣質，易導致草酸鈣結石。部分生鮮豆類含有紅血球凝集素及胰蛋白抑制因子，生金針含秋水仙素，必須經過適當加熱破壞，否則會引起腸胃發炎。</p>
+            <p>植物中的酚類化合物會造成<strong>酵素性褐變 (enzymatic browning reaction)</strong>（如蘋果、牛蒡削皮後變色）。加工上常利用<strong>殺菁 (blanching)</strong>、有機酸降低pH值、或浸泡鹽水隔絕氧氣來防止變色。</p>
+
+            <h3>參、色素</h3>
+            <p>植物天然色素具抗氧化性，分為四大類：</p>
+            <ul>
+                <li><strong>葉綠素 (chlorophyll)：</strong>綠色蔬菜的主因（分為藍綠色a與黃綠色b）。加熱過程中產酸，會使葉綠素結構中的鎂被去除而變成橄欖棕色，故應大火快炒、不蓋鍋蓋以免有機酸回流。</li>
+                <li><strong>類胡蘿蔔素 (carotenoids)：</strong>黃、橙及紅色色素（如胡蘿蔔素、茄紅素），屬脂溶性。烹調中相對穩定，需經烹煮才易被人體吸收。</li>
+                <li><strong>類黃酮 (flavonoids)：</strong>水溶性。包含<strong>花青素 (anthocyanin)</strong>（茄子、紫包心菜，酸性穩定，鹼性變黃）及<strong>花黃素質</strong>（花椰菜、蘿蔔，微酸無色，遇鹼或鐵離子變黃）。</li>
+                <li><strong>甜菜色素 (betalain)：</strong>存在於甜菜、莧菜，鹼性太高會轉黃。具清除自由基功能。</li>
+            </ul>
+
+            <h3>肆、風味成分</h3>
+            <p>構成植物氣味的成分包括：酯類（水果芳香）、含硫化合物（大蒜、洋蔥，加熱後轉化具甜味）、植物鹼與酚類單寧（苦澀味，可浸水或鹽搓去汁去除）、香菇精（香菇乾燥過程產生）。烹煮時加蓋可避免揮發性風味流失。</p>
 
             <h2>第二節 蔬菜的分類與儲藏</h2>
-            <h3>控氣保藏 (CA) 與 調氣保藏 (MA)</h3>
-            <p>利用改變環境中的氧氣與二氧化碳濃度，降低蔬果的呼吸速率，從而延長儲藏期限。</p>
+            
+            <h3>壹、分類與選購</h3>
+            <p>農糧署將蔬菜分為七類：葉菜類、包葉菜類、根菜類、莖菜類、花菜類、果菜類與其他類。選購首重當令盛產，可預防農藥殘留。此外，「有機」(organic) 蔬菜指自然農耕、零汙染（三年內不能使用人工化肥），需認明有機農產品 CAS 標章及驗證字號。</p>
+
+            <h3>貳、儲藏方式</h3>
+            <ul>
+                <li><strong>常溫與冷藏：</strong>降溫可減緩呼吸速率，但須注意<strong>冷傷 (chilling injury)</strong>（如九層塔放低於15℃冰箱易黑變枯萎）。</li>
+                <li><strong>控氣保藏 (CA) / 調氣保藏 (MA)：</strong>降低氧氣濃度，提高二氧化碳濃度以降低呼吸作用（如超市有孔塑膠袋包裝）。</li>
+                <li><strong>輻射照射：</strong>使用伽馬射線，可抑制馬鈴薯發芽、殺滅昆蟲，不殘留放射線。</li>
+                <li><strong>冷凍與製罐：</strong>冷凍蔬菜加工需經過殺菁（95℃熱水約3分鐘）後急速凍結。烹調時應避免過度加熱失去口感。</li>
+            </ul>
 
             <h2>第三節 蔬菜的製備原理</h2>
-            <p>烹調蔬菜三不原則：<strong>水不要多、溫度不要高、時間不要久</strong>。以減少維生素C的流失。</p>
+            <p>前處理包含洗滌（流水去農藥、臭氧殺菌）與修整。烹調蔬菜要把握三不原則：<strong>水不要多、溫度不要高、烹調時間不要過久</strong>，以保留維生素C。</p>
+            <ul>
+                <li><strong>蔬果雕刻：</strong>利用創意與刀工化成精美盤飾。</li>
+                <li><strong>生鮮食用：</strong>攝取豐富酵素，如生機飲食(living foods)的精力湯，或凱撒沙拉。需注意清洗與寄生蟲問題。</li>
+                <li><strong>醃漬 (pickling)：</strong>加入食鹽、調味料發酵，如泡菜、梅干菜。</li>
+                <li><strong>汆燙：</strong>類似殺菁，熱水短時間加熱後置於冰水，具保持顏色與去青澀味作用。</li>
+                <li><strong>炒：</strong>包含素炒、爆炒、溜炒（勾芡）、乾煸（炸過後收乾湯汁，如乾煸四季豆）。</li>
+                <li><strong>燉煮：</strong>長時間熬煮，適用澱粉含量高蔬菜（南瓜、馬鈴薯）。類似的有熬、燒、燴、滷。</li>
+                <li><strong>烘烤與焗烤 (gratin)：</strong>利用熱源褐化。焗烤常搭配起士絲（如馬茲瑞拉）與白醬/紅醬。</li>
+                <li><strong>油炸：</strong>175~190℃高溫加熱。分為素炸與裹麵糊炸（如日式炸什錦）。起鍋前開大火可避免吸附油脂。</li>
+            </ul>
 
-            <h2>第四節 藻類與菇類</h2>
-            <p>菇類含有豐富蛋白質與多醣體。黑木耳具有抗凝血特性，女性生理期應避免過量食用。</p>
+            <h2>第四節 藻類與菇類在烹調上的運用</h2>
+            
+            <h3>壹、藻類</h3>
+            <p>藻類被稱為海中蔬菜，含豐富維生素、礦物質(碘、鈣)與不飽和脂肪酸(DHA、EPA)，屬鹼性食物。常見綠藻、紅藻(紫菜、石花菜)與褐藻(海帶、昆布)。日式料理常利用昆布熬煮高湯，其表面白霜為甘露醇，是鮮甜味來源。</p>
+
+            <h3>貳、菇蕈類</h3>
+            <p>含有豐富膳食纖維，蛋白質高達30~40%，含18種胺基酸。多食用可活化免疫細胞（多醣體）。台灣常見段木栽培(木耳)、太空包(香菇)、自動化(金針菇)。</p>
+            <p><strong>木耳：</strong>白木耳具滋陰潤肺功效；黑木耳含豐富果膠能產生飽足感，其酸性多醣具抗凝血特性（女性生理期需注意）。生鮮菇類高溫久煮會變黑脫水，烹調時宜注意。</p>
+
+            <h2>結論</h2>
+            <p>蔬菜含有豐富營養與機能性色素，是預防文明病不可缺少的食材。選購品質佳的蔬菜並熟知各種成分變化與儲藏、烹飪方式，創造出豐富多元的飲食，實為本章重要課題。</p>
 
             <div class="quiz-section">
-                <h3>📝 小測驗：自我檢測</h3>
+                <h3>📝 學習成效檢測 (點擊題目查看答案)</h3>
                 <details>
-                    <summary>Q1: 為了保持綠色蔬菜的鮮艷，烹調時為什麼不建議蓋上鍋蓋？</summary>
-                    <div class="answer">答案：為了避免蔬菜中的微量有機酸回流至汁液中，導致葉綠素變色為橄欖棕色。</div>
+                    <summary>Q1: 葉綠素在加熱過程中為何容易變色？應如何正確烹調綠葉蔬菜？</summary>
+                    <div class="answer">答：加熱過程中蔬菜會產酸，致使葉綠素結構中的「鎂」被去除而變成橄欖棕色。正確的烹調方式應為「大火快炒」，且「不要蓋上鍋蓋燜煮」，讓有機酸能隨蒸氣揮發，保持鮮綠。</div>
                 </details>
                 <details>
-                    <summary>Q2: 什麼是「萎凋」(Wilting)？</summary>
-                    <div class="answer">答案：指葉菜類因為採收後水分散失，導致原本挺直的莖葉呈現枯萎狀態。</div>
+                    <summary>Q2: 蔬菜發生「酵素性褐變」的原因為何？有什麼預防方法？</summary>
+                    <div class="answer">答：植物組織受損（如切開、削皮）後，酚類化合物與空氣中的氧氣或金屬離子接觸產生褐變。預防方法包含：「殺菁」破壞酵素活性、泡鹽水隔絕氧氣、或利用醋/檸檬汁降低pH值。</div>
                 </details>
                 <details>
-                    <summary>Q3: 哪一類膳食纖維可以幫助刺激腸道蠕動，預防便秘？</summary>
-                    <div class="answer">答案：水溶性膳食纖維（如半纖維質、果膠）。</div>
+                    <summary>Q3: 什麼是「冷傷」(chilling injury)？</summary>
+                    <div class="answer">答：部分蔬菜若放置於過低的溫度中，會促使植物代謝失調，造成食材褐變、軟腐或黑變枯萎（如九層塔放置於一般冷藏庫），導致儲藏時間縮短。</div>
+                </details>
+                <details>
+                    <summary>Q4: 烹煮蔬菜時應把握哪「三不原則」？</summary>
+                    <div class="answer">答：水不要多（減少營養流失於湯汁）、溫度不要高、烹調時間不要過久。以最大限度保留水溶性的維生素C。</div>
                 </details>
             </div>
         </div>
 
     </div>
 
-    <footer>
-        <p>© 教育數位教材系統 - 食物製備原理與應用</p>
-    </footer>
-
     <script>
-        function showChapter(chapterId, btn) {
-            // 隱藏所有章節
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
-
-            // 顯示指定章節
-            document.getElementById(chapterId).classList.add('active');
-
-            // 更新按鈕狀態
-            const btns = document.querySelectorAll('.nav-btn');
-            btns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        function switchTab(tabId) {
+            // 隱藏所有內容
+            document.querySelectorAll('.chapter-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            // 移除所有按鈕的 active 狀態
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // 顯示選中內容與按鈕
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
 
             // 切換時回到頂部
             window.scrollTo({top: 0, behavior: 'smooth'});
