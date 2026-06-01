@@ -3,143 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>田舍共居 Tian-She | 蔬食者的 Web3 理想聚落</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>食物製備原理與應用 - 第九章 蔬菜類</title>
     <style>
-        body { font-family: 'Noto Sans TC', sans-serif; }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');
-            background-size: cover;
-            background-position: center;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fcfcfc;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #27ae60;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #27ae60;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        .highlight-box {
+            background: #e8f8f5;
+            padding: 20px;
+            border-left: 5px solid #27ae60;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        .author-info {
+            color: #7f8c8d;
+            font-size: 1.1em;
         }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800">
+<body>
 
-    <!-- Navigation -->
-    <nav class="flex justify-between items-center px-6 py-4 bg-white shadow-sm sticky top-0 z-50">
-        <div class="text-xl font-bold text-green-700 tracking-wider">TIAN-SHE 田舍</div>
-        <a href="#join" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-full text-sm font-medium transition">
-            加入候補名單
-        </a>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero-bg h-[80vh] flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-3xl">
-            <span class="bg-green-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Web3 x Co-living</span>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                拒絕孤單，拒絕葷腥。<br>
-                屬於<span class="text-green-400">蔬食者</span>的理想生活。
-            </h1>
-            <p class="text-lg md:text-xl mb-8 text-gray-200 font-light">
-                全台首創 DAO 治理共生公寓。先組隊，再入住。<br>
-                用智能合約保障權益，用共同理念篩選室友。
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#join" class="bg-green-600 hover:bg-green-500 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
-                    🚀 加入組隊 Discord
-                </a>
-                <a href="#features" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-3 rounded-lg text-lg font-semibold transition">
-                    了解運作模式
-                </a>
-            </div>
-        </div>
+    <header>
+        <h1>第九章 蔬菜類 [cite: 5, 6]</h1>
+        <p class="author-info">出自：《食物製備原理與應用(三版)》 何學斌 編著 [cite: 7, 8]</p>
     </header>
 
-    <!-- Problem & Solution -->
-    <section id="features" class="py-20 px-6 max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl font-bold mb-6 text-stone-800">受夠了冰箱裡的生肉味？<br>或是擔心室友的生活習慣？</h2>
-                <p class="text-stone-600 mb-6 leading-relaxed">
-                    在田舍，我們深知蔬食者的租屋痛點。這裡不僅僅是出租空間，更是一個基於 Web3 技術與共同價值觀建立的「生活協議」。
-                </p>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <span class="text-green-600 mr-3 text-xl">🌿</span>
-                        <div>
-                            <h3 class="font-bold text-lg">100% 純植環境</h3>
-                            <p class="text-sm text-stone-500">嚴格的生活公約，確保公共區域無葷食，鍋具冰箱安心共用。</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-green-600 mr-3 text-xl">🔗</span>
-                        <div>
-                            <h3 class="font-bold text-lg">Smart Contract 管理</h3>
-                            <p class="text-sm text-stone-500">押金鎖定智能合約，甚至可投入 DeFi 生息。租金支付透明化。</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-green-600 mr-3 text-xl">🤝</span>
-                        <div>
-                            <h3 class="font-bold text-lg">DAO 治理與組隊</h3>
-                            <p class="text-sm text-stone-500">不用被動等待房東面試。在社群裡先認識未來的室友，確認頻率對了再一起簽約。</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Co-living space" class="rounded-2xl shadow-xl">
-                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg max-w-xs hidden md:block">
-                    <p class="text-green-800 font-bold mb-1">"終於不用擔心室友把葷食放進我的鍋子裡了！"</p>
-                    <p class="text-gray-500 text-sm">- Web3 工程師 / 蔬食者 Alex</p>
-                </div>
-            </div>
-        </div>
+    <div class="highlight-box">
+        <h3>🎯 學習目標 [cite: 9]</h3>
+        <ul>
+            <li>了解如何挑選各類新鮮蔬菜。 [cite: 11]</li>
+            <li>認識各類蔬菜的儲藏方式，並維持良好蔬菜品質。 [cite: 12]</li>
+            <li>認識蔬菜的成分對烹調上的影響。 [cite: 13]</li>
+            <li>學習蔬菜的各種烹調方式與變化。 [cite: 14]</li>
+        </ul>
+    </div>
+
+    <div class="highlight-box">
+        <h3>💡 重要字彙 [cite: 15]</h3>
+        <p>萎凋 (wilting) [cite: 16]、膳食纖維 (dietary fiber) [cite: 17]、酵素性褐變 (enzymatic browning reaction) [cite: 18]、殺菁 (blanching) [cite: 19]、有機認證 (organic certification) [cite: 20]、冷傷 (chilling injury) [cite: 21]、控氣保藏 (control atmosphere storage) [cite: 22]、調氣保藏 (modified atmosphere storage) [cite: 23]、生機飲食 (living foods) [cite: 24]、蔬果雕刻 (fruit and vegetable carving) [cite: 25]、醃漬 (pickling) [cite: 26]、炒 (stir frying) [cite: 27]、燉煮 (stew) [cite: 29]、烘烤 (roasting) [cite: 30]、燒烤 (grilling) [cite: 31]、焗烤 (gratin) [cite: 32]、油炸 (deep frying) [cite: 33]。</p>
+    </div>
+
+    <section>
+        <h2>前言 [cite: 34]</h2>
+        <p>2002年知名醫學雜誌 The Lancet 中有一篇研究指出，在歸納26個國家的相關研究後發現，成人每天至少要攝取600克的蔬果，換算為蔬果的份數就相當於5份的蔬果，而我國每日飲食指南中建議量為每日300克蔬菜。 [cite: 35] 根據營養健康變遷調查結果(1993~1996)顯示，國人平均攝食蔬菜之份數只有1.95份（＜ 200克），顯示有攝取不足的情況。 [cite: 35] 蔬菜主要供給維生素、礦物質與纖維，對於人體的生理代謝有極大的幫助。 [cite: 35] 蔬菜的可食部分包括植物的根、莖、葉、花、果實、種子等，如何選購蔬菜與利用多樣化的烹調方式，以增加纖維與營養成分的攝取，實為維護個人健康一大重要課題。 [cite: 35]</p>
     </section>
 
-    <!-- How it Works (The DAO Strategy) -->
-    <section class="bg-stone-100 py-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-12">我們如何運作？ (DAO 模式)</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="text-4xl mb-4">💬</div>
-                    <h3 class="text-xl font-bold mb-2">1. 社群組隊</h3>
-                    <p class="text-stone-500 text-sm">加入 Discord，依據地區（如：南港、松山）與預算尋找你的「潛在室友」。</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="text-4xl mb-4">💰</div>
-                    <h3 class="text-xl font-bold mb-2">2. 鎖定意向</h3>
-                    <p class="text-stone-500 text-sm">隊伍成形後，透過智能合約存入意向金 (USDT)，證明大家的入住決心。</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="text-4xl mb-4">🔑</div>
-                    <h3 class="text-xl font-bold mb-2">3. 簽約入住</h3>
-                    <p class="text-stone-500 text-sm">田舍團隊進場簽約並佈置軟裝。你們拎包入住，開啟高品質共居生活。</p>
-                </div>
-            </div>
-        </div>
+    <section>
+        <h2>第一節 蔬菜的成分與特性 [cite: 36]</h2>
+        <p>蔬菜的種類繁多，雖然多數的蛋白質與脂肪偏低，但卻有大量的現代飲食中缺乏之維生素、礦物質與纖維。 [cite: 37] 了解蔬菜原料的成分，有助於了解蔬菜的特性與烹調方式。 [cite: 37]</p>
+
+        <h3>壹、一般成分 [cite: 39]</h3>
+        <h4>一、水分 [cite: 43]</h4>
+        <p>在一般成分分析上，蔬菜中水分所佔的比例依照不同種類有所差異：葉菜類水分含量在84~96%、根菜類66~93%、果菜類85~97%、菇類88~95%，藻類4~20%。 [cite: 44] 葉菜類之莖梗因存在的水分而造成莖葉挺直，採收後會因失水而呈現「萎凋」(wilting)狀態，因此如何避免採收後水分的散失，相當重要。 [cite: 44]</p>
+
+        <h4>二、碳水化合物 [cite: 47]</h4>
+        <p>蔬菜在固形物中蛋白質與脂肪的含量都很低，最重要的組成是碳水化合物，去除水分後之比例約佔75%（乾重）左右。 [cite: 48] 其中一類碳水化合物是構成細胞壁，屬於人體無法消化的多醣類，在食用營養價值上一般稱為「膳食纖維」(dietary fiber)。 [cite: 48]</p>
+        <ul>
+            <li><strong>水溶性膳食纖維：</strong>包括半纖維質、果膠、海藻膠等，具有吸收水分，刺激腸道蠕動，預防便秘的發生、降低癌症罹患率、延緩飯後血糖上升、降低血清膽固醇之速度等功效。 [cite: 52]</li>
+            <li><strong>非水溶性膳食纖維：</strong>包括纖維質、木質素(lignin)等，具有稀釋致癌物質濃度、增加飽足感、預防便秘及腸憩炎、降低癌症罹患率等功效。 [cite: 53]</li>
+        </ul>
+        <p>另一類碳水化合物則是澱粉，含量豐富者，如馬鈴薯、番薯、皇帝豆、豌豆等屬於主食類食物，在儲藏期間會將當中的糖類轉換為澱粉儲存起來，而造成甜味下降。 [cite: 56]</p>
+
+        <h4>三、維生素與礦物質 [cite: 59]</h4>
+        <p>蔬菜中主要之維生素有維生素A、B1、B2、C，隨種類不同而有所差異。 [cite: 60] 其中，維生素A於胡蘿蔔、菠菜、番茄中之含量豐富；維生素B1於豆類中之含量較多；維生素C、B2於綠葉蔬菜中之含量豐富；菸鹼酸普遍存在於各類蔬菜中；深綠色蔬菜則含有豐富葉酸。 [cite: 60] 另外，蔬菜中含有鈉、鉀、鎂、鈣、鐵與微量元素鋅等礦物質。 [cite: 63] 其中，葉菜類中的鈣、鐵；豆類中的鎂、鈷、錳；海藻中的鐵、鈣、鈉、碘的含量較豐富。 [cite: 63]</p>
+
+        <h3>貳、其他成分 [cite: 66]</h3>
+        <p>有些蔬菜（如菠菜、芹菜、茄子、韭菜、芥菜、秋葵、荷蘭芹、青椒）中含有較高量的草酸，若是大量食用此類蔬菜，而沒有相對攝取足夠的鈣質，會造成尿液中的草酸排泄增加，就容易導致草酸鈣結石的機會，故在食用此類蔬菜時，應該謹慎。 [cite: 67] 另外蔬菜在生鮮階段含有毒性，如黃豆、荷蘭豆、扁豆、四季豆等豆類食物，含有紅血球凝集素及胰蛋白抑制因子，會抑制人體吸收營養素；生金針含秋水仙素。 [cite: 67] 上述這些食材都必須經過適當的加熱破壞，否則會引起腸胃發炎、腹瀉等症狀。 [cite: 70]</p>
+        <p>植物中所含有的酚類化合物，如兒茶酚、漂木酸、酪胺酸等，對蔬果的顏色有很大的影響，主要會造成酵素性褐變(enzymatic browning reaction)而使得蔬果變色，容易形成褐變的蔬果，如洋菇、牛蒡、蘋果、梨、桃等。 [cite: 71]</p>
+
+        <h3>參、色素 [cite: 77]</h3>
+        <ul>
+            <li><strong>葉綠素 (chlorophyll)：</strong>是造成蔬菜類鮮綠色之主因。 [cite: 82] 烹調之蔬菜顏色從亮綠色轉變成橄欖棕色之主因為加熱過程中產酸，致使葉綠素結構中的鎂被去除而導致變色，所以一般綠色蔬菜應大火快炒，以減少葉綠素的變色。 [cite: 86]</li>
+            <li><strong>類胡蘿蔔素 (carotenoids)：</strong>是胡蘿蔔、番茄、紅椒、菠菜等呈現黃、橙及紅色的主要色素，屬於脂溶性色素。 [cite: 90] 在烹調中相對穩定，不受加熱、酸鹼的破壞。 [cite: 93]</li>
+            <li><strong>類黃酮 (flavonoids)：</strong>屬於水溶性色素。 [cite: 97] 包括花青素（茄子等）[cite: 98] 與花黃素質（花椰菜等）[cite: 101]。</li>
+            <li><strong>甜菜色素 (betalain)：</strong>存在於少數植物中，如甜菜、莧菜的紅紫色色素。 [cite: 105]</li>
+        </ul>
     </section>
 
-    <!-- CTA Section -->
-    <section id="join" class="py-24 px-6 text-center">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6">準備好尋找你的靈魂室友了嗎？</h2>
-            <p class="text-stone-600 mb-8">
-                目前開放 **台北市 (南港/松山)** 區域意願登記。<br>
-                首批「創始會員」將獲得未來租金折扣 NFT 空投。
-            </p>
-            
-            <!-- Replace # with your actual Discord or Google Form link -->
-            <form class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto mb-6">
-                <input type="email" placeholder="輸入你的 Email" class="px-4 py-3 rounded-lg border border-stone-300 focus:outline-none focus:ring-2 focus:ring-green-500 flex-1">
-                <button type="button" onclick="alert('感謝您的興趣！請設定後端或 Discord 連結。')" class="bg-green-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-800 transition whitespace-nowrap">
-                    加入等待名單
-                </button>
-            </form>
-            <p class="text-sm text-stone-400">
-                或者直接加入我們的 <a href="#" class="text-green-600 underline">Discord 社群</a> 聊聊
-            </p>
-        </div>
+    <section>
+        <h2>第二節 蔬菜的分類與儲藏 [cite: 121]</h2>
+
+        <h3>壹、分類 [cite: 124]</h3>
+        <p>農糧署將蔬菜分為七類，分別是葉菜類、包葉菜類、根菜類、莖菜類、花菜類、果菜類與其他類。 [cite: 125]</p>
+        <table>
+            <caption>表 9-1 蔬菜的分類 [cite: 126]</caption>
+            <tr><th>類別</th><th>種類</th></tr>
+            <tr><td>葉菜類</td><td>小白菜、青江白菜、菠菜、芹菜、蕹菜等 [cite: 126]</td></tr>
+            <tr><td>包葉菜類</td><td>甘藍、結球白菜、結球萵苣等 [cite: 126]</td></tr>
+            <tr><td>根菜類</td><td>蘿蔔、胡蘿蔔等 [cite: 126]</td></tr>
+            <tr><td>莖菜類</td><td>竹筍、筊白筍、洋蔥、薑等 [cite: 126]</td></tr>
+            <tr><td>花菜類</td><td>花椰菜、金針菜等 [cite: 126]</td></tr>
+            <tr><td>果菜類</td><td>胡瓜、苦瓜、番茄、茄子、豌豆、菜豆等 [cite: 126]</td></tr>
+            <tr><td>其他類</td><td>菇菌類（洋菇、香菇）、芽菜類（綠豆芽、黃豆芽等） [cite: 126]</td></tr>
+        </table>
+
+        <h3>貳、選購 [cite: 128]</h3>
+        <p>蔬菜的品質，首重選購新鮮食材，其中選購當令盛產的蔬菜最為新鮮與物美價廉。 [cite: 129] 在選擇上可以下列方式作為預防農藥殘留之選購原則：</p>
+        <ul>
+            <li>選擇當令蔬菜，產量較多價格便宜（較不會噴灑農藥）。 [cite: 139]</li>
+            <li>夏季因高溫病蟲害多，蔬菜農藥殘留之情形較多，選擇能去皮或剝除外葉食用的蔬菜種類。 [cite: 142]</li>
+            <li>選擇抵抗性強、很少發生病蟲害，栽培時幾乎可以不噴農藥即可生產，如番薯葉、紅鳳菜、秋葵等。 [cite: 143]</li>
+        </ul>
+
+        <h3>參、儲藏 [cite: 164]</h3>
+        <p>蔬菜之儲藏方式可分為常溫、冷藏、控氣保藏、輻射照射、冷凍與製罐等方式。 [cite: 165]</p>
+        <ul>
+            <li><strong>常溫及冷藏：</strong>降低溫度以減緩蔬果類食材之呼吸速率。 [cite: 169] 需注意冷傷(chilling injury)的發生。 [cite: 172]</li>
+            <li><strong>控氣保藏 (CA)：</strong>利用改變與控制環境中的大氣組成，降低呼吸作用。 [cite: 176] 商業上可利用簡單包裝（調氣保藏 MA）來達到效果。 [cite: 179]</li>
+            <li><strong>輻射照射：</strong>以伽馬射線或電子射束將能量傳遞到食物上，如抑制馬鈴薯發芽。 [cite: 183] 被照射過的食品不會殘留放射線。 [cite: 183]</li>
+            <li><strong>冷凍及製罐：</strong>用於長期儲存。 [cite: 190] 冷凍蔬菜加工需經過殺菁（約95℃熱水加熱3分鐘）後進行急速凍結。 [cite: 193]</li>
+        </ul>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-stone-900 text-stone-400 py-8 text-center text-sm">
-        <p>&copy; 2026 Tian-She Co-living. Powered by Polygon.</p>
-    </footer>
+    <section>
+        <h2>第三節 蔬菜的製備原理 [cite: 195]</h2>
+        <h3>壹、前處理 [cite: 198]</h3>
+        <p>蔬菜於烹調前需經前處理，包括洗滌（去土、腐葉、汙物、農藥殘留）與修整（去腐、皮、切塊）。 [cite: 199] 為防止農藥殘留問題，應利用流水式洗滌；商業上常使用臭氧輔助設備殺菌。 [cite: 203] 修整時，應先洗滌後再去皮或截切，以避免水溶性成分流失。 [cite: 207]</p>
+
+        <h3>貳、製備方式 [cite: 210]</h3>
+        <ul>
+            <li><strong>蔬果雕刻：</strong>以自然蔬果本身的形與色為創作空間，增添進食之美觀與樂趣。 [cite: 215]</li>
+            <li><strong>生鮮食用：</strong>可以攝取到豐富的酵素。 [cite: 219] 包括生機飲食（如精力湯）[cite: 225] 與西式沙拉 [cite: 228]。</li>
+            <li><strong>醃漬：</strong>加入食鹽、調味料等，經過發酵，如泡菜、梅干菜。 [cite: 235]</li>
+            <li><strong>烹調：</strong>烹調蔬菜時要把握三不原則：水不要多、溫度不要高、烹調時間不要過久。 [cite: 242]</li>
+        </ul>
+        <p><strong>常見加熱方式：</strong></p>
+        <ul>
+            <li><strong>汆燙：</strong>類似殺菁，熱水短時間加熱後置於冰水，具保持蔬菜顏色等作用。 [cite: 250]</li>
+            <li><strong>炒：</strong>以少量食用油大火快速翻拌。可分為素炒 [cite: 255]、爆炒 [cite: 256]、溜炒 [cite: 259]、乾煸 [cite: 260]。</li>
+            <li><strong>燉煮：</strong>利用湯汁長時間熬煮，適用於澱粉含量高的蔬菜，類似方式有熬、燒、燴、滷。 [cite: 264, 267]</li>
+            <li><strong>烘烤與焗烤：</strong>利用熱源將食物表面褐化。 [cite: 277] 焗烤是與起士絲混合烤至焦黃。 [cite: 280, 283]</li>
+            <li><strong>油炸：</strong>在高溫（175~190 ℃）下進行，使表面金黃酥脆。起鍋前開大火可避免吸附過多油脂。 [cite: 287, 290]</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>第四節 藻類與菇類在烹調上的運用 [cite: 295]</h2>
+        <h3>壹、藻類 [cite: 298]</h3>
+        <p>藻類含有豐富的維生素、礦物質與膳食纖維，為一種鹼性食物，被稱為海中蔬菜。 [cite: 299] 食用方式包括涼拌、煮湯或煎炒，常見之菜式包括芝麻拌海帶芽、涼拌海帶絲、海菜小魚羹等。 [cite: 309] 日式料理中常利用昆布萃取鮮美的柴魚昆布高湯。 [cite: 306]</p>
+
+        <h3>貳、菇蕈類 [cite: 312]</h3>
+        <p>菇蕈類蛋白質含量高達30~40%，並含有人體所需的18種胺基酸。 [cite: 313] 台灣栽培方式分為段木栽培（如木耳）、太空包（如香菇）、自動化控溫（如金針菇）與覆土法（如洋菇）。 [cite: 319]</p>
+        <p><strong>養身菌蕈類－木耳：</strong>[cite: 331] 白木耳具滋陰潤肺之效；黑木耳含有豐富果膠及多醣，具降血糖及抗凝血特性。但因黑木耳具有活血功效，女性生理期需避免食用。 [cite: 332, 333]</p>
+    </section>
+
+    <section>
+        <h2>結論 [cite: 334]</h2>
+        <p>蔬菜除了含有豐富維生素、礦物質與纖維以提供人們所需營養外，具有豐富的色素，除了提供鮮豔顏色、促進食慾外，具有機能性，是預防文明病之不可缺少的食材。 [cite: 335] 蔬菜儲藏方式對品質的影響甚大，因此選購品質佳的蔬菜同為烹飪前的重點。 [cite: 335] 熟知蔬菜的各種成分變化與烹飪方式，創造出更豐富與多元的飲食，實為本章最重要的課題。 [cite: 335]</p>
+    </section>
 
 </body>
 </html>
